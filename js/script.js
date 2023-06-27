@@ -158,6 +158,55 @@ async function getShowDetail() {
 }
 
 
+// Display Slider Movie
+async function displaySlider() {
+  const { results } = await fetchApiData('movie/now_playing')
+  console.log(results);
+  // console.log(movieDetail);
+  results.forEach(result => {
+    const div = document.createElement('div');
+    div.classList.add('swiper-slide');
+    div.innerHTML = `
+    <a href="movie-details.html?id=${result.id}">
+    <img src="https://image.tmdb.org/t/p/w500/${result.poster_path}" />
+  </a>
+  <h4 class="swiper-rating">
+    <i class="fas fa-star text-secondary"></i> ${result.vote_average.toFixed(1)} / 10
+  </h4>
+    `
+    document.querySelector('.swiper-wrapper').appendChild(div)
+    initSwiper()
+  })
+}
+
+function initSwiper() {
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    freeMode: true,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      500: {
+        slidesPerView: 2,
+      },
+      // when window width is >= 480px
+      700: {
+        slidesPerView: 3,
+      },
+      // when window width is >= 640px
+      1200: {
+        slidesPerView: 4,
+      }
+    },
+    
+  });
+}
+
 // Fetch Data
 async function fetchApiData(endpoint) {
   const API_KEY = '9ef830f07c9bfd20f31f48a911de5a79';
@@ -224,6 +273,7 @@ function init() {
   switch (global.currentPage) {
     case '/':
     case '/index.html':
+      displaySlider()
       getPopularMovies()
       break;
     case '/shows.html':
