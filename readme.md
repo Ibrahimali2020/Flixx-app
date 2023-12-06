@@ -22,6 +22,9 @@ This is a simple website that displays movies and TV shows using data fetched fr
 - Use the search bar to find specific movies/shows by title or keywords.
 - Pagination buttons at the bottom of the page allow you to load more results.
 
+
+## Live Site URL: [Live site URL](https://todoapp-reactjs-app.netlify.app](https://flixx-app-javascript.netlify.app)
+
 ## Contributing
 
 Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue on the GitHub repository.
