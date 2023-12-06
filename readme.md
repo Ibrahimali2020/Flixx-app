@@ -24,7 +24,7 @@ This is a simple website that displays movies and TV shows using data fetched fr
 
 
 ## Live Site URL:
-[Live site URL](https://todoapp-reactjs-app.netlify.app](https://flixx-app-javascript.netlify.app)
+[Live site URL](https://flixx-app-javascript.netlify.app)
 
 ## Contributing
 
